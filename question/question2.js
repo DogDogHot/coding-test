@@ -15,7 +15,7 @@
 
 출처 https://www.acmicpc.net/problem/15662
 */
-let sampleData = `4
+let sampleData1 = `4
 10101111
 01111101
 11001110
@@ -33,6 +33,17 @@ let sampleData2 = `4
 2 1
 3 1`;
 let sampleData3 = `4
+10001011
+10000011
+01011011
+00111101
+5
+1 1
+2 1
+3 1
+4 1
+1 -1`;
+let sampleData4 = `4
 10010011
 01010011
 11100011
@@ -46,7 +57,7 @@ let sampleData3 = `4
 2 -1
 3 -1
 4 -1`;
-let sampleData4 = `5
+let sampleData5 = `5
 10010011
 01010011
 11100011
@@ -81,7 +92,7 @@ function solution(text) {
   //running
   spinArray.forEach((v) => {
     //data
-    let cGearArray = gearArray;
+    let cGearArray = gearArray.map((v) => v);
     let spinArray = v.split(" ");
     let mainGearIndex = parseInt(spinArray[0]) - 1;
     let spin = parseInt(spinArray[1]);
@@ -130,7 +141,6 @@ function solution(text) {
   let result = gearArray.filter((v) => {
     return v.charAt(0) === "1" ? v : "";
   });
-
   return result.length;
 
   //동작 함수.
@@ -156,4 +166,4 @@ function solution(text) {
   }
 }
 
-solution(sampleData4);
+solution(sampleData3);
