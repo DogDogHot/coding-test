@@ -36,7 +36,7 @@ function solution(progresses, speeds) {
   let amount = 1;
 
   progresses
-    .map((_, i) => Math.ceil((100 - progresses[i]) / speeds[i]))
+    .map((v, i) => Math.ceil((100 - v) / speeds[i]))
     .forEach((v, i, array) => {
       if (day === 0) {
         day = v;
@@ -49,7 +49,6 @@ function solution(progresses, speeds) {
         amount = 1;
       }
     });
-  console.log(answer);
   return answer;
 }
 
