@@ -33,7 +33,7 @@ progresses	speeds	return
 function solution(progresses, speeds) {
   var answer = [];
   let day = 0;
-  let amount = 0;
+  let amount = 1;
 
   progresses
     .map((_, i) => Math.ceil((100 - progresses[i]) / speeds[i]))
@@ -41,18 +41,17 @@ function solution(progresses, speeds) {
       if (day === 0) {
         day = v;
       }
-      if (day < v) {
-        answer.push(amount);
-        amount = 0;
-        day = 0;
-      }
-      if (array.length == i + 1) {
+      if (day >= array[i + 1]) {
         amount++;
+      } else {
         answer.push(amount);
-      } else amount++;
+        day = array[i + 1];
+        amount = 1;
+      }
     });
+  console.log(answer);
   return answer;
 }
 
-solution([95, 90, 99, 99, 80, 99], [1, 1, 1, 1, 1, 1]);
-solution([93, 30, 55], [1, 30, 5]);
+solution([1, 2, 3, 4, 4, 3, 2, 1], [1, 1, 1, 1, 1, 1, 1, 1]);
+// solution([93, 30, 55], [1, 30, 5]);
